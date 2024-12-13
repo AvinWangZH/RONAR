@@ -1,3 +1,3 @@
 # RONAR
 
-[Release Soon]
+[Coming Soon]
