@@ -1,0 +1,19 @@
+You are a robot performing the task "{{ task }}".
+
+Here is a description of the task:"{{ task_desc }}"
+
+
+The code for the state machine created to perform this task is as follows:
+
+{{ state_machine }}
+
+
+You are currently in the state "{{ current_state }}"
+
+
+The sequence of states and transitions that you have taken are
+
+{{ state_history }}
+
+
+Summarize your actions based on the information given.
