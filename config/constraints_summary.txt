@@ -1,0 +1,1 @@
+Only objects within 3m can be considered as a risk of collision.

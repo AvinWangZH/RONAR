@@ -1,0 +1,23 @@
+smach.StateMachine.add('START', Start(), transitions={'success':'NAVIGATE_TO_PICK', 'abort':'END', 'preempt':'preempt'})
+
+smach.StateMachine.add('NAVIGATE_TO_PICK', NavigateToPick(), transitions={'success':'PICK', 'abort':'END', 'preempt':'preempt', 'fail':'NAVIGATE_TO_PICK_QUERY_USER'})
+smach.StateMachine.add('NAVIGATE_TO_PICK_QUERY_USER', QueryUser(), transitions={'abort':'END', 'continue':'NAVIGATE_TO_PICK', 'next_state':'PICK', 'teleoperate':'NAVIGATE_TO_PICK_TELEOPERATE', 'previous_state':'NAVIGATE_TO_PICK'})
+smach.StateMachine.add('NAVIGATE_TO_PICK_TELEOPERATE', Teleoperate(), transitions={'success':'NAVIGATE_TO_PICK_QUERY_USER', 'abort':'END', 'preempt':'preempt'})
+
+smach.StateMachine.add('PICK', Pick(), transitions={'success':'NAVIGATE_TO_PLACE', 'abort':'END', 'preempt':'preempt', 'fail':'PICK_QUERY_USER'})
+smach.StateMachine.add('PICK_QUERY_USER', QueryUser(), transitions={'abort':'END', 'continue':'PICK', 'next_state':'NAVIGATE_TO_PLACE', 'teleoperate':'PICK_TELEOPERATE', 'previous_state':'NAVIGATE_TO_PICK'})
+smach.StateMachine.add('PICK_TELEOPERATE', Teleoperate(), transitions={'success':'PICK_QUERY_USER', 'abort':'END', 'preempt':'preempt'})
+
+smach.StateMachine.add('NAVIGATE_TO_PLACE', NavigateToPlace(), transitions={'success':'DETECT_TO_PLACE', 'abort':'END', 'preempt':'preempt', 'fail':'NAVIGATE_TO_PLACE_QUERY_USER'})
+smach.StateMachine.add('NAVIGATE_TO_PLACE_QUERY_USER', QueryUser(), transitions={'abort':'END', 'continue':'NAVIGATE_TO_PLACE', 'next_state':'DETECT_TO_PLACE', 'teleoperate':'NAVIGATE_TO_PLACE_TELEOPERATE', 'previous_state':'NAVIGATE_TO_PLACE'})
+smach.StateMachine.add('NAVIGATE_TO_PLACE_TELEOPERATE', Teleoperate(), transitions={'success':'NAVIGATE_TO_PLACE_QUERY_USER', 'abort':'END', 'preempt':'preempt'})
+
+smach.StateMachine.add('DETECT_TO_PLACE', DetectToPlace(), transitions={'success':'PLACE', 'abort':'END', 'preempt':'preempt', 'fail':'DETECT_TO_PLACE_QUERY_USER'})
+smach.StateMachine.add('DETECT_TO_PLACE_QUERY_USER', QueryUser(), transitions={'abort':'END', 'continue':'DETECT_TO_PLACE', 'next_state':'PLACE', 'teleoperate':'DETECT_TO_PLACE_TELEOPERATE', 'previous_state':'NAVIGATE_TO_PLACE'})
+smach.StateMachine.add('DETECT_TO_PLACE_TELEOPERATE', Teleoperate(), transitions={'success':'DETECT_TO_PLACE_QUERY_USER', 'abort':'END', 'preempt':'preempt'})
+
+smach.StateMachine.add('PLACE', Place(), transitions={'success':'END', 'abort':'END', 'preempt':'preempt', 'fail':'PLACE_QUERY_USER'})
+smach.StateMachine.add('PLACE_QUERY_USER', QueryUser(), transitions={'abort':'END', 'continue':'PLACE', 'next_state':'END', 'teleoperate':'PLACE_TELEOPERATE', 'previous_state':'DETECT_TO_PLACE'})
+smach.StateMachine.add('PLACE_TELEOPERATE', Teleoperate(), transitions={'success':'PLACE_QUERY_USER', 'abort':'END', 'preempt':'preempt'})
+
+smach.StateMachine.add('END', End(), transitions={'success':'success', 'abort':'abort', 'preempt':'preempt'})

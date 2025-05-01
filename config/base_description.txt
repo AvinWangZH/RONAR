@@ -1,0 +1,6 @@
+{
+    [Base Position]: (x, y) position in meters,
+    [Base Orientation]: orientation in radians,
+    [Base Velocity]: velocity in meters per second,
+    [Base Angular Velocity]: angular_velocity in radians per second
+}

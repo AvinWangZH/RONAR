@@ -1,0 +1,27 @@
+StateMachine.add('START', Start(robot, config['nav_initial']), transitions={'success':'NAVIGATE_TO_CUP', 'abort':'abort', 'preempt':'preempt', 'fail':'abort'})
+
+StateMachine.add('NAVIGATE_TO_CUP', Navigate(robot, config['nav_pick']), transitions={'success':'LOOK_FOR_CUP', 'preempt':'preempt', 'abort':'abort', 'fail':'NAVIGATE_TO_CUP_QUERY_USER'})
+StateMachine.add('NAVIGATE_TO_CUP_QUERY_USER', QueryUser(ui), transitions={'abort':'abort', 'previous_state':'START', 'continue':'NAVIGATE_TO_CUP', 'next_state':'LOOK_FOR_CUP', 'teleoperate':'NAVIGATE_TO_CUP_TELEOPERATE' })
+StateMachine.add('NAVIGATE_TO_CUP_TELEOPERATE', Teleoperate(robot, ui), transitions={'success':'NAVIGATE_TO_CUP_QUERY_USER', 'abort':'abort', 'preempt':'preempt'})
+
+StateMachine.add('LOOK_FOR_CUP', LookForObject(robot, 'cup', confidence=0.8, head_tilt=-0.6, pan_steps=5, left_limit=-2.5, right_limit=0.5), transitions={'success':'PICK_CUP', 'preempt':'preempt', 'abort':'abort', 'fail':'LOOK_FOR_CUP_QUERY_USER'})
+StateMachine.add('LOOK_FOR_CUP_QUERY_USER', QueryUser(ui), transitions={'abort':'abort', 'previous_state':'NAVIGATE_TO_CUP', 'continue':'LOOK_FOR_CUP', 'next_state':'PICK_CUP', 'teleoperate':'LOOK_FOR_CUP_TELEOPERATE' })
+StateMachine.add('LOOK_FOR_CUP_TELEOPERATE', Teleoperate(robot, ui), transitions={'success':'LOOK_FOR_CUP_QUERY_USER', 'abort':'abort', 'preempt':'preempt'})
+
+StateMachine.add('PICK_CUP', ManipulateFromObjectIK(robot, 'cup', config['manipulation_pick']), transitions={'success':'NAVIGATE_TO_SINK', 'preempt':'preempt', 'abort':'abort', 'fail':'PICK_CUP_QUERY_USER'})
+StateMachine.add('PICK_CUP_QUERY_USER', QueryUser(ui), transitions={'abort':'abort', 'previous_state':'LOOK_FOR_CUP', 'continue':'PICK_CUP', 'next_state':'NAVIGATE_TO_SINK', 'teleoperate':'PICK_CUP_TELEOPERATE' })
+StateMachine.add('PICK_CUP_TELEOPERATE', Teleoperate(robot, ui), transitions={'success':'PICK_CUP_QUERY_USER', 'abort':'abort', 'preempt':'preempt'})
+
+StateMachine.add('NAVIGATE_TO_SINK', Navigate(robot, config['nav_place']), transitions={'success':'LOOK_FOR_SINK', 'preempt':'preempt', 'abort':'abort', 'fail':'NAVIGATE_TO_SINK_QUERY_USER'})
+StateMachine.add('NAVIGATE_TO_SINK_QUERY_USER', QueryUser(ui), transitions={'abort':'abort', 'previous_state':'PICK_CUP', 'continue':'NAVIGATE_TO_SINK', 'next_state':'LOOK_FOR_SINK', 'teleoperate':'NAVIGATE_TO_SINK_TELEOPERATE' })
+StateMachine.add('NAVIGATE_TO_SINK_TELEOPERATE', Teleoperate(robot, ui), transitions={'success':'NAVIGATE_TO_SINK_QUERY_USER', 'abort':'abort', 'preempt':'preempt'})
+
+StateMachine.add('LOOK_FOR_SINK', LookForMarker(robot, 'drop'), transitions={'success':'PLACE_CUP', 'preempt':'preempt', 'abort':'abort', 'fail':'LOOK_FOR_SINK_QUERY_USER'})
+StateMachine.add('LOOK_FOR_SINK_QUERY_USER', QueryUser(ui), transitions={'abort':'abort', 'previous_state':'NAVIGATE_TO_SINK', 'continue':'LOOK_FOR_SINK', 'next_state':'PLACE_CUP', 'teleoperate':'LOOK_FOR_SINK_TELEOPERATE' })
+StateMachine.add('LOOK_FOR_SINK_TELEOPERATE', Teleoperate(robot, ui), transitions={'success':'LOOK_FOR_SINK_QUERY_USER', 'abort':'abort', 'preempt':'preempt'})
+
+StateMachine.add('PLACE_CUP', ManipulateFromMarkerIK(robot, 'drop', config['manipulation_place']), transitions={'success':'END', 'preempt':'preempt', 'abort':'abort', 'fail':'PLACE_CUP_QUERY_USER'})
+StateMachine.add('PLACE_CUP_QUERY_USER', QueryUser(ui), transitions={'abort':'abort', 'previous_state':'LOOK_FOR_SINK', 'continue':'PLACE_CUP', 'next_state':'END', 'teleoperate':'PLACE_CUP_TELEOPERATE' })
+StateMachine.add('PLACE_CUP_TELEOPERATE', Teleoperate(robot, ui), transitions={'success':'PLACE_CUP_QUERY_USER', 'abort':'abort', 'preempt':'preempt'})
+
+StateMachine.add('END', End(), transitions={'success':'success', 'abort':'abort', 'preempt':'preempt', 'fail':'abort'})

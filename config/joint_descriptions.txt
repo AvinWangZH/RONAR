@@ -1,0 +1,55 @@
+{
+    'wrist_extension' : {
+        'Description': 'This prismatic joint control the linear extension of the robot arm, thereby allowing the arm to extend or retract along its length, perpendicular to the forward direction of the robot base. It contains four segments, described by joint_arm_l3, joint_arm_l2, joint_arm_l1, and joint_arm_l0',
+        'lower_limit': 0.0, 
+        'upper_limit': 0.52,
+        'type': 'prismatic'
+    }, 
+    'joint_lift': {
+        'Description': 'This joint controls the vertical movement of the robot arm, allowing the arm to be raised and lowered.',
+        'lower_limit': 0.0,
+        'upper_limit': 1.1,
+        'Type': 'prismatic'
+    },
+    'joint_head_pan': {
+        'Description': 'This joint allows the Realsense D435i camera mounted at the head of the robot to pan left and right, rotating around the vertical axis.',
+        'lower_limit': -3.9,
+        'upper_limit': 1.5,
+        'Type': 'revolute'
+    },
+    'joint_head_tilt': {
+        'Description': 'This joint allows the Realsense D435i camera mounted at the head of the robot to tilt up and down.',
+        'lower_limit': -1.53,
+        'upper_limit': 0.79,
+        'Type': 'revolute'
+    },
+    'joint_wrist_yaw': {
+        'Description': 'Allows rotational movement around the wrist\'s yaw axis, enabling the end effector to rotate left or right.',
+        'lower_limit': -1.75,
+        'upper_limit': 4.0,
+        'Type': 'revolute'
+    },
+    'joint_wrist_pitch': {
+        'Description': 'This joint controls the pitch of the wrist, allowing the end effector to move up and down.',
+        'lower_limit': -1.57,
+        'upper_limit': 0.56
+    },
+    'joint_wrist_roll': {
+        'Description': 'It provides the ability for the wrist to roll, rotating along the arm\'s axis.',
+        'lower_limit': -3.14,
+        'upper_limit': 3.14,
+        'Type': 'revolute'
+    },
+    'joint_gripper_finger_left': {
+        'Description': 'Controls the left finger\'s movement of the gripper, enabling it to open and close for grasping objects.',
+        'lower_limit': -0.36,
+        'upper_limit': 0.69,
+        'Type': 'revolute'
+    },
+    'joint_gripper_finger_right': {
+        'Description': 'Controls the right finger\'s movement of the gripper, enabling it to open and close for grasping objects.',
+        'lower_limit': -0.36,
+        'upper_limit': 0.69,
+        'Type': 'revolute'
+    }
+}
