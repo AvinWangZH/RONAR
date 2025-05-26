@@ -1,0 +1,13 @@
+State Machine Description 
+
+Instruction: The input includes the following four components:
+Task: The overall task the robot wants to achieve.
+State Machine: A backbone of state machine to achieve the task.
+Current State: The current state the robot on.
+State History: A list of states the robot has been done. Each state is a tuple in the format of (state_name, transition). For example, a "PICK" state with a "success" transition would be (PICK, success).
+
+The current state description is:
+Task: ###Task Name Placeholder###
+State Machine: ###SM Placeholder###
+Current State: ###Curr State Placeholder###
+State History: ###State History Placeholder###

@@ -1,0 +1,1 @@
+No people in the room. All the objects are mentioned in the description. Only the object near in 3m can consider as a risk of collision.

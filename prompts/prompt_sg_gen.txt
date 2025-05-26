@@ -1,0 +1,8 @@
+Your output should be a scene graph of a given image. The scene graph output should include three components: nodes, edges and dist_to_the_camera. It should be in the following format:
+
+---Start of Example---
+nodes = [obj1, obj2, ...]
+edges = [(obj1, obj2, 'spatial relation obj1 relate to obj2'), (obj1, obj2, 'spatial relation obj2 relate to obj1'), ...]
+dist_to_the_camera =  [obj1_dist_to_camera, obj2_dist, ...].  * this is an estimation of distance in meters
+---End of Example---
+

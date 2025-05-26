@@ -1,0 +1,35 @@
+Task: ###Task Placeholder###
+
+
+Trajectory Summaries:
+###Trajectory Summary Placeholder###
+
+Command: Generate an overall summary about this robot overall performance across all the trajectories on this task. Then, show what the most common failures the robot might have. Then, suggest how to improve the system. Here are instructions for each part:
+
+---Instruction Start---
+
+Overall Summary: [an overall summary across all the trajectories, around 300 words]
+
+Failure Type (ranked with commonality, failure appearance number): 
+ - Instruction: use error type in the list [navigation failure, detection failure, pick failure, place failure] if the error is none of the list, make a new category. Under each of the type, write a list of common reasons (if there is only one reason, just states that reason) causing the failure based on the robot experience in the trajectory description. Do not make things up.  The order of the reasons should based on the commonality.
+
+Recovery Summary: 
+- Instruction: for each of the failure type, summarize the most common way to recover each of the failures. Show the appearance count if possible. It should fully based on the robot experience in the trajectory description. No hallucination.
+---Instruction End---
+
+Here is an example:
+
+---Example Start---
+Overall Summary: ...
+
+Failure Type:
+Navigation Failure (1 occurrence):
+Common reasons: An unexpected force on the ground detected by the robot's wheels, possibly due to an obstacle or unusual floor condition. This issue occurred in an office environment cluttered with objects like stools, tables, and storage shelves, which complicated the navigation.
+Detection Failure (1 occurrence):
+Common reasons: The robot's inability to detect a bottle with an AR marker despite having functioning navigation and detection systems. This indicates challenges in adapting detection technologies to complex, real-world environments where variables can significantly differ from those in controlled settings.
+
+Recovery Summary: 
+For Navigation Failures: ...
+
+For Detection Failures: ...
+---Example End---

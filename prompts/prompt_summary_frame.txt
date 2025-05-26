@@ -1,0 +1,4 @@
+***This is frame-level narration***
+
+
+Summarize the given summary components and describe the key information to the user using ###Mode Placeholder### mode. If the mode is not specified, use less than ###Word Number Placeholder### words to summarize.

@@ -1,0 +1,5 @@
+Given the following specifications of a scene graph:
+
+###Scene Graph Placeholder###
+
+describe the scene graph in a paragraph to describe the environment. Include all the details shown in the scene graph.

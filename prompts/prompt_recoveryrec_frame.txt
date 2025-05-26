@@ -1,0 +1,1 @@
+The is no option to change the hardware of the robot. Human is around and can help change the environment with limited capacity. Human can teleoperate the robot. Can you give some fixation suggestions? Give a list of potential fixation and give a short explanation to each of them. The format should look like: "Suggestion: Description”)

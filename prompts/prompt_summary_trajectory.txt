@@ -1,0 +1,22 @@
+Task: ###Task Placeholder###
+
+State Machine History: ###State Machine History###
+
+Narration about each state:
+###Frame Summary Placeholder###
+
+Command: Generate an overall summary about this robot trajectory. User around 300 words. And then summarize the key information with the following format:
+
+---Example Start---
+Failed States: 
+1. ...
+2. ...
+
+How did the robot recovered:
+1. ...
+2. ...
+
+Improvement recommendations:
+1. ...
+2. ...
+---Example End---
