@@ -32,7 +32,8 @@
     'joint_wrist_pitch': {
         'Description': 'This joint controls the pitch of the wrist, allowing the end effector to move up and down.',
         'lower_limit': -1.57,
-        'upper_limit': 0.56
+        'upper_limit': 0.56,
+        'Type': 'revolute'
     },
     'joint_wrist_roll': {
         'Description': 'It provides the ability for the wrist to roll, rotating along the arm\'s axis.',

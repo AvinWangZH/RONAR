@@ -1,6 +1,26 @@
-{
-    [Base Position]: (x, y) position in meters,
-    [Base Orientation]: orientation in radians,
-    [Base Velocity]: velocity in meters per second,
-    [Base Angular Velocity]: angular_velocity in radians per second
+{'position': {
+        'Description': 'The position (x, y) of the robot relative to the initial location.',
+        'Unit': 'm',
+    },
+ 'orientation': {
+        'Description': 'The orientation of the robot is facing. It measures the robot facing angle relative to the initial orientation, which is set to 0. The direction is counterclock-wise',
+        'lower_limit': 0.0,
+        'upper_limit': 6.2832,
+        'Unit': 'radian',
+        'Example': 'The orientation 1.5707 means the robot is facing 90 degrees counterclockwise relative to the initial facing.'
+    },
+  'velocity': {
+        'Description': 'The velocity of the robot is moving forward. velocity = 0 means the robot base is not moving',
+        'lower_limit': 0.0,
+        'upper_limit': 0.3,
+        'Unit': 'm/s',
+    },
+  'angular_velocity': {
+        'Description': 'The angular velocity of the robot is rotating counterclockwise. Negative angular_velocity means the robot is rotating clockwise',
+        'Unit': 'radian/s',
+        'lower_limit': 0.5758,
+        'upper_limit': -0.5758,
+    },
 }
+
+
