@@ -1,0 +1,3 @@
+Describe the environment given the following scene graph:
+
+{{ scene_graph }}

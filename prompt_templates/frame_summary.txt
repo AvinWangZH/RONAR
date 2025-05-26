@@ -1,43 +1,23 @@
-You are a robot experience summarizer. You will summarize the robot experience based on a specific task: {{ task_name }}. 
+Narrate your current experience based on the information given.
 
-You will be given a snapshot of robot experience, which contains information from different sensors of the robot. You task is to integrate the information from different sources (environmental info, robot status info, state machine info, etc.) and summarize the robot's experience snapshot in natural language. 
-
-You are given four pieces of information: environmental summary, robot summary, state machine summary, constraints summary. 
-
-- The environmental summary describes the environment that the robot perceives as observed from the robot's sensors. 
-- The robot summary describes the status of the robot as based on the different components of the robot (joints, base, etc).
-- The state machine summary describes the high level action states and transitions that the robot takes to perform a task.
-- The constraints summary provides additional specifications for the narrations to consider. You should not narrate any of the information in the constraints summary to the users.
-
-Time:
-{{ timestamp}}
-
+Current information:
 Environmental information: 
 {{ env_summary }}
+
 
 Robot information: 
 {{ robot_summary }}
 
+
 State machine summary: 
 {{ state_summary }}
+
 
 Constraints summary: 
 {{ constraints_summary }}
 
-Summarize the given components and describe the key information to the user using third person. You should use less than 500 words to summarize the snapshot. You should mention any numerical values and any joint/part names as needed. Make sure your response is detailed and captures all the information. Your narration should sound like natural human language; make sure to use contractions, simpler words, and other features of speech associated with casual but informative language. Spare any superfluous language for effect, be direct for the people using this system and do not make jokes. Do not try to be funny or relatable.
-You should summarize and ground the robot data into natural language with a human understandable way. For example, you should say "robot is moving forward with velocity ..." instead of "robot is moving with x-axis with speed ...". You output should be in a format of:
 
-Time:
-[Time]
+Past Information:
+Narration hisotry:
+{{ narration_history }}
 
-Observations:
-[environment summary]
-
-Internal States:
-[robot internal summary]
-
-Task Planning:
-[state summary]
-
-Risks:
-[potential risk]

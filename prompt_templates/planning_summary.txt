@@ -1,0 +1,8 @@
+Summarize your actions and plans based on the information given.
+
+You are currently in the state "{{ current_state }}"
+
+The sequence of states and transitions that you have taken are
+
+{{ state_history }}
+

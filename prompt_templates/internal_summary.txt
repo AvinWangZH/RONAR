@@ -1,0 +1,9 @@
+Describe the robot actions given the following information:
+
+The joint information:
+
+{{ joints }}
+
+The mobile base information:
+
+{{ odom }}

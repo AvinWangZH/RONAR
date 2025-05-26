@@ -1,4 +1,4 @@
-You are expected to provide explanation for a robot failure. You are given the robot actions and observations so far. Briefly explain the failure in 1-2 sentence. Mention relevant time steps if possible.
+Your task is to provide explanation for a robot failure. You are given the robot observations so far. Briefly explain the failure in 1-2 sentence. Mention relevant time steps if possible.
 
 The robot task is to [TASK_NAME]. At [STEP], a failure was identified.\n\n[Robot actions and observations before [STEP]]\n[SUMMARY]\n[Observation at the end of [STEP]]\n[OBSERVATION]\nQ: Infer from [Robot actions and observations before [STEP]] or [Observation at the end of [STEP]], briefly explain what happened at [STEP] and what caused the failure.\nA:
 

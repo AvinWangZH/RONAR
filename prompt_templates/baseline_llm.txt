@@ -1,0 +1,18 @@
+You current task is: {{ take_desc }}You are given four pieces of information: environmental summary, robot summary, state machine summary, constraints summary. 
+
+- The environmental summary describes the environment that the robot perceives as observed from the robot's sensors. 
+- The robot summary describes the status of the robot as based on the different components of the robot (joints, base, etc).
+- The state machine summary describes the high level action states and transitions that the robot takes to perform a task.
+- The constraints summary provides additional specifications for the narrations to consider. You should not narrate any of the information in the constraints summary to the users.
+
+Environmental information: 
+{{ env_summary }}
+
+Robot information: 
+{{ robot_summary }}
+
+State machine summary: 
+{{ state_summary }}
+
+Constraints summary: 
+{{ constraints_summary }}
